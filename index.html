@@ -1,8 +1,244 @@
+<!DOCTYPE html>
 <html>
-  <div align="center">
-  <h1>Estamos trabajando la página web</h1>
-  <h3>Sigue a atento a futuras actualizaciones, pásate por <a href="https://github.com/SeriousGamesStudio/Serious-Train-2-3D">nuestro reprositorio</a></h3>
-  <br>
-  <img src="https://raw.githubusercontent.com/wiki/SeriousGamesStudio/Serious-Train-2-3D/images/gameLogo.png" alt="Logo"> 
-  </div>
+<head>
+
+    <title>Serious Train 2 3D</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/wiki/SeriousGamesStudio/Serious-Train-2-3D/images/gameLogo.png" title="SGS">
+    <link href='https://fonts.googleapis.com/css?family=Graduate' rel='stylesheet'>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="three.js"></script>
+    <script src="Detector.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="OBJLoader.js"></script>
+    <script src="MTLLoader.js"></script>
+
+    <style>
+        /*body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background: hsl(0, 0%, 10%);
+        }*/
+        body {
+        	background: hsl(0, 0%, 10%);
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .left,
+        .right {
+            position: absolute;
+            color: #fff;
+            font-family: Geneva, sans-serif;
+        }
+
+        .left {
+            bottom: 1em;
+            left: 1em;
+            text-align: left;
+        }
+
+        .right {
+            top: 0;
+            right: 0;
+            text-align: right;
+        }
+
+        a {
+            color: #f58231;
+        }
+        h1 {
+        	margin: 0px;
+        }
+        h2 {
+        	color: #fff;
+        	font-size: 300%;
+        	font-family: 'Graduate';
+        }
+        h3 {
+        	font-size: 110%;
+        	color: #fff;
+        	text-align: left;
+        }
+        h4 {
+        	font-size: 110%;
+        	color: #fff;
+        	text-align: left;
+        }
+        /*body {
+        	color: #fff;
+        	margin-left: 0px;
+  			margin-right: 40px;
+  			margin-top: 0px;
+  			margin-bottom: 10px;
+  			text-align: right;
+  			<img style= "float:right" src="https://raw.githubusercontent.com/wiki/SeriousGamesStudio/Serious-Train-2-3D/images/gameLogo.png" alt="Logo" width="100" height="100">
+        }*/
+    </style>
+
+</head>
+<body>
+	<div align="center">
+  	<h1 style="background-color:dimgray;">
+  	<img src="https://raw.githubusercontent.com/wiki/SeriousGamesStudio/Serious-Train-2-3D/images/gameLogo.png" alt="Logo" width="200" height="200">
+  	</h1>
+  	<h2> El legado
+  	</h2>
+  	<h3>
+  	En la primera parte de nuestro <a href="https://gonguz.github.io/nonsolum.github.io/">juego</a>, Sam McConaughey, acaba llegando a un refugio fortificada y estable donde encontró a algunos de los supervivientes que aún resistian. Tras sus duros y últimos viajes, exterminó a la gran mayoría de los infectados, los suficientes como para que la gente pudiera asentarse en pequeñas colonias repartidas por el territorio.
+	</h3>
+	<h4>
+	El tiempo pasa en calma y, tras varios años sin ser apenas vistos, vuelven a verse pequeños grupos de infectados en ocasiones puntuales. Esto empieza a ser cada vez más frecuente hasta que la situación se vuelve insostenible. La humanidad no se rinde sin luchar y se empieza a asegurar más y más cada uno de los asentamientos, construyéndose por el camino una red de comunicación por radio entre las distintas poblaciones. Con esto, la vida dentro es tranquila, pero el miedo puede olerse y intercambio de recursos se vuelve una tarea demasiado peligrosa que solo puede llevar a cabo gente muy preparada. Esto lleva a que Sam acabe infectado en uno de sus trayectos y decide poner fin a su vida antes de dejar de ser él mismo. Ahora tú, su único hijo, debe hacerse cargo del Ubi Trinus, el tren que acompañó a Sam en todas sus aventuras, y heredar su legado: salvarlos a todos.
+  	</h4>
+    <script>/*
+
+        if (!Detector.webgl) {
+            Detector.addGetWebGLMessage();
+        }
+
+        var container;
+
+        var camera, controls, scene, renderer;
+        var lighting, ambient, keyLight, fillLight, backLight;
+
+        init();
+        animate();
+
+        function init() {
+
+            container = document.createElement('div');
+            document.body.appendChild(container);
+
+            /* Camera */
+
+            /*camera = new THREE.PerspectiveCamera(1450, window.innerWidth / window.innerHeight, 1, 5000);
+            camera.position.z = 35;
+
+            /* Scene */
+
+            /*scene = new THREE.Scene();
+            lighting = false;
+
+            ambient = new THREE.AmbientLight(0xffffff, 1.0);
+            scene.add(ambient);
+
+            keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
+            keyLight.position.set(-100, 0, 100);
+
+            fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
+            fillLight.position.set(100, 0, 100);
+
+            backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+            backLight.position.set(100, 0, -100).normalize();
+
+            /* Model */
+
+            /*var mtlLoader = new THREE.MTLLoader();
+            mtlLoader.setBaseUrl('assetsPg/');
+            mtlLoader.setPath('assetsPg/');
+            mtlLoader.load('zombie.mtl', function (materials) {
+
+                materials.preload();
+
+               /* materials.materials.default.map.magFilter = THREE.NearestFilter;
+                materials.materials.default.map.minFilter = THREE.LinearFilter;*/
+
+                /*var objLoader = new THREE.OBJLoader();
+                objLoader.setMaterials(materials);
+                objLoader.setPath('assetsPg/');
+                objLoader.load('zombie.obj', function (object) {
+
+                    scene.add(object);
+
+                });
+
+            });
+
+            /* Renderer */
+
+            /*renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
+
+            container.appendChild(renderer.domElement);
+
+            /* Controls */
+
+            /*controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.25;
+            controls.enableZoom = true;
+
+            /* Events */
+
+            /*window.addEventListener('resize', onWindowResize, false);
+            window.addEventListener('keydown', onKeyboardEvent, false);
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        function onKeyboardEvent(e) {
+
+            if (e.code === 'KeyL') {
+
+                lighting = !lighting;
+
+                if (lighting) {
+
+                    ambient.intensity = 0.25;
+                    scene.add(keyLight);
+                    scene.add(fillLight);
+                    scene.add(backLight);
+
+                } else {
+
+                    ambient.intensity = 1.0;
+                    scene.remove(keyLight);
+                    scene.remove(fillLight);
+                    scene.remove(backLight);
+
+                }
+
+            }
+
+        }
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            controls.update();
+
+            render();
+
+        }
+
+        function render() {
+
+            renderer.render(scene, camera);
+
+        }*/
+
+    </script>
+    <li id= "RepoLink">
+    	<a href="https://github.com/SeriousGamesStudio/Serious-Train-2-3D">¡Nuestro repositorio en Github!</a>
+    </li>
+    <li id= "TwitterLink">
+    	<a href="https://twitter.com/SeriousGamesStd">Twitter</a>
+</body>
 </html>
