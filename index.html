@@ -96,7 +96,7 @@
 	<h4>
 	El tiempo pasa en calma y, tras varios años sin ser apenas vistos, vuelven a verse pequeños grupos de infectados en ocasiones puntuales. Esto empieza a ser cada vez más frecuente hasta que la situación se vuelve insostenible. La humanidad no se rinde sin luchar y se empieza a asegurar más y más cada uno de los asentamientos, construyéndose por el camino una red de comunicación por radio entre las distintas poblaciones. Con esto, la vida dentro es tranquila, pero el miedo puede olerse y intercambio de recursos se vuelve una tarea demasiado peligrosa que solo puede llevar a cabo gente muy preparada. Esto lleva a que Sam acabe infectado en uno de sus trayectos y decide poner fin a su vida antes de dejar de ser él mismo. Ahora tú, su único hijo, debe hacerse cargo del Ubi Trinus, el tren que acompañó a Sam en todas sus aventuras, y heredar su legado: salvarlos a todos.
   	</h4>
-    <script>/*
+    <script>
 
         if (!Detector.webgl) {
             Detector.addGetWebGLMessage();
@@ -117,12 +117,12 @@
 
             /* Camera */
 
-            /*camera = new THREE.PerspectiveCamera(1450, window.innerWidth / window.innerHeight, 1, 5000);
+            camera = new THREE.PerspectiveCamera(1450, window.innerWidth / window.innerHeight, 1, 5000);
             camera.position.z = 35;
 
             /* Scene */
 
-            /*scene = new THREE.Scene();
+            scene = new THREE.Scene();
             lighting = false;
 
             ambient = new THREE.AmbientLight(0xffffff, 1.0);
@@ -139,20 +139,20 @@
 
             /* Model */
 
-            /*var mtlLoader = new THREE.MTLLoader();
+            var mtlLoader = new THREE.MTLLoader();
             mtlLoader.setBaseUrl('assetsPg/');
             mtlLoader.setPath('assetsPg/');
-            mtlLoader.load('zombie.mtl', function (materials) {
+            mtlLoader.load('prueb.mtl', function (materials) {
 
                 materials.preload();
 
-               /* materials.materials.default.map.magFilter = THREE.NearestFilter;
+              /*materials.materials.default.map.magFilter = THREE.NearestFilter;
                 materials.materials.default.map.minFilter = THREE.LinearFilter;*/
 
-                /*var objLoader = new THREE.OBJLoader();
+                var objLoader = new THREE.OBJLoader();
                 objLoader.setMaterials(materials);
                 objLoader.setPath('assetsPg/');
-                objLoader.load('zombie.obj', function (object) {
+                objLoader.load('prueb.obj', function (object) {
 
                     scene.add(object);
 
@@ -162,7 +162,7 @@
 
             /* Renderer */
 
-            /*renderer = new THREE.WebGLRenderer();
+            renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
@@ -171,14 +171,14 @@
 
             /* Controls */
 
-            /*controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.25;
             controls.enableZoom = true;
 
             /* Events */
 
-            /*window.addEventListener('resize', onWindowResize, false);
+            window.addEventListener('resize', onWindowResize, false);
             window.addEventListener('keydown', onKeyboardEvent, false);
 
         }
@@ -232,7 +232,7 @@
 
             renderer.render(scene, camera);
 
-        }*/
+        }
 
     </script>
     <li id= "RepoLink">
